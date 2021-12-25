@@ -16,6 +16,18 @@ export default function PokemonName({ pokemon }) {
   );
 }
 
+export async function getStaticPaths() {
+  // Call an external API endpoint to get posts
+  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/`)
+  const pokemons = (await res.json())?.results
+
+  const paths = pokemons.map((pokemon) => ({
+    params: { name: pokemon.name },
+  }))
+
+  return { paths, fallback: true }
+}
+
 export async function getStaticProps({ params }) {
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${params.name}`)
   const post = await res.json()
