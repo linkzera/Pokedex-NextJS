@@ -4,20 +4,7 @@ import Cabecalho from "../../components/Cabecalho";
 import Layout from "../../components/Layout";
 import Titulo from "../../components/Titulo";
 
-export default function PokemonName() {
-  const [pokemon, setPokemon] = useState({});
-  const router = useRouter();
-  const name = router.query.name
-  useEffect(() => {
-    const getData = async ()=>{
-      const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`).then(res=>res.json())
-      console.log(data)
-     setPokemon(data)
-    }
-   getData()
- 
-  }, [name])
-
+export default function PokemonName({ pokemon }) {
  
   return (
     <>
@@ -27,4 +14,12 @@ export default function PokemonName() {
       <Layout />
     </>
   );
+}
+
+export async function getStaticProps({ params }) {
+  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${params.name}`)
+  const post = await res.json()
+
+  // Pass post data to the page via props
+  return { props: { pokemon } }
 }
