@@ -1,0 +1,25 @@
+.pokemonCard {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.pokemonCard_cabecalho {
+  background-color: #f5db13;
+  color: #212121;
+}
+
+.pokemonCard_nome {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.pokemonCard_imagem {
+  text-align: center;
+}
+
+.botaoVoltar {
+  text-align: center;
+}

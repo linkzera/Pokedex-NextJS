@@ -10,16 +10,16 @@ export default function Index() {
   };
 
   return (
-    <div>
+    <>
       <Titulo>Pokédex Next</Titulo>
-      <Cabecalho titulo="Cabeçalho" />
+      <Cabecalho titulo="Pokédex Next.JS" />
       <input
         type="text"
         defaultValue={""}
         onChange={handleName}
-        placeholder="pokémon name"
+        placeholder="Pokémon name"
       />
       <Layout href={`/pokemon/${name || "1"}`}>Search Pokémon</Layout>
-    </div>
+    </>
   );
 }

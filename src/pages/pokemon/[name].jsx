@@ -1,14 +1,37 @@
+import Image from "next/image";
 import Cabecalho from "../../components/Cabecalho";
 import Layout from "../../components/Layout";
 import Titulo from "../../components/Titulo";
+import style from "../../styles/PokemonCard.module.css";
 
 export default function PokemonName({ pokemon }) {
   return (
     <>
-      <Titulo>Pokémon {pokemon.name}</Titulo>
-      <Cabecalho titulo={`pokemon ${pokemon.name}`} />
-      <span>{pokemon.name}</span>
-      <Layout />
+      <div className={style.pokemonCard}>
+        <Titulo>
+          Pokémon {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+        </Titulo>
+        <section className={style.pokemonCard_cabecalho}>
+          <Cabecalho
+            titulo={`Pokédex - Pokémon ${
+              pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
+            }`}
+          />
+        </section>
+
+        <span className={style.pokemonCard_nome}>{pokemon.name}</span>
+        <section className={style.pokemonCard_imagem}>
+          <Image
+            alt="pokémon image"
+            src={`${pokemon.sprites.front_default}`}
+            width="250px"
+            height="250px"
+          ></Image>
+        </section>
+        <section className={style.botaoVoltar}>
+          <Layout />
+        </section>
+      </div>
     </>
   );
 }
