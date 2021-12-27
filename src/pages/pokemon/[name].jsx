@@ -49,7 +49,7 @@ export const getStaticProps = async (context) => {
 
 export const getStaticPaths = async () => {
   return {
-    paths: [`/pokemon/b`],
+    paths: [`/pokemon/bulbasaur`],
     fallback: true,
   };
 };
