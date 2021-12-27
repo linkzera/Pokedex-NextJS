@@ -44,12 +44,12 @@ export const getStaticProps = async (context) => {
     (res) => res.json()
   );
 
-  return { props: { pokemon: data } };
+  return { props: { pokemon: data }, revalidate: 600 };
 };
 
 export const getStaticPaths = async () => {
   return {
-    paths: [`/pokemon/1`, `/pokemon/bulbasaur`],
+    paths: [`/pokemon/b`],
     fallback: true,
   };
 };

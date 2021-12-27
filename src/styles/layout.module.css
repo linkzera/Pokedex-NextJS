@@ -1,16 +1,15 @@
-.link{
-    font-weight: 600;
-    background-color: rgb(207, 207, 56);
-    font-size: 14px;
-    border: none;
-    border-radius:5px;
-    padding: 5px;
-    margin: 5px;
-    cursor: pointer;
-    box-shadow: 1px 1px 1px black;
+.link {
+  font-weight: 600;
+  background-color: #f5db13;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px black;
 }
 
-.link:hover{
-    background-color: rgb(163, 163, 51);
-
+.link:hover {
+  background-color: rgb(163, 163, 51);
 }
