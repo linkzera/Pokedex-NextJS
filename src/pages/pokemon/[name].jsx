@@ -20,15 +20,25 @@ export default function PokemonName({ pokemon }) {
           />
         </section>
 
-        <span className={style.pokemonCard_nome}>{pokemon?.name}</span>
         <section className={style.pokemonCard_imagem}>
           <Image
             alt="pokémon image"
-            src={`${pokemon?.sprites.front_default}`}
-            width="250px"
-            height="250px"
+            src={`${pokemon?.sprites?.front_default}`}
+            width="200px"
+            height="200px"
           ></Image>
         </section>
+        <article className={style.infosAbout}>
+          <p className={style.pokemonCard_nome}>Name: {pokemon?.name}</p>
+          <p className={style.pokemonCard_nome}>Weight: {pokemon?.weight}lbs</p>
+          <p className={style.pokemonCard_nome}>
+            Types: {pokemon?.types?.map((type) => `${type.type.name} `)}
+          </p>
+          <p className={style.pokemonCard_nome}>
+            Moves: {pokemon?.abilities?.map((item) => `${item.ability.name} `)}
+          </p>
+        </article>
+
         <section className={style.botaoVoltar}>
           <Layout />
         </section>
