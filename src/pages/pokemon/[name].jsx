@@ -35,7 +35,10 @@ export default function PokemonName({ pokemon }) {
             Types: {pokemon?.types?.map((type) => `${type.type.name} `)}
           </p>
           <p className={style.pokemonCard_nome}>
-            Moves: {pokemon?.abilities?.map((item) => `${item.ability.name} `)}
+            Moves:{" "}
+            {pokemon?.abilities?.map(
+              (item, index) => `${index + 1} ${item.ability.name} `
+            )}
           </p>
         </article>
 
