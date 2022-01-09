@@ -1,10 +1,13 @@
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import Cabecalho from "../../components/Cabecalho";
 import Layout from "../../components/Layout";
 import Titulo from "../../components/Titulo";
 import style from "../../styles/PokemonCard.module.css";
 
 export default function PokemonName({ pokemon }) {
+  const [state, setState] = useState({});
+
   return (
     <>
       <div className={style.pokemonCard}>
@@ -32,7 +35,17 @@ export default function PokemonName({ pokemon }) {
           <p className={style.pokemonCard_nome}>Name: {pokemon?.name}</p>
           <p className={style.pokemonCard_nome}>Weight: {pokemon?.weight}lbs</p>
           <p className={style.pokemonCard_nome}>
-            Types: {pokemon?.types?.map((type) => `${type.type.name} `)}
+            Types:{" "}
+            {pokemon?.types?.map((type, index) => {
+              const tipo = type.type.name;
+              // eslint-disable-next-line react-hooks/rules-of-hooks
+
+              return (
+                <span key={index} style={{ marginLeft: "5px" }}>
+                  {tipo}
+                </span>
+              );
+            })}
           </p>
           <p className={style.pokemonCard_nome}>
             Moves:{" "}
